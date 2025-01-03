@@ -3,6 +3,7 @@ valor = []
 serial = []
 departamento = []
 
+# Adicionar itens no inventario
 resposta = "sim"
 while resposta == "sim":
     equipamento.append(input("Equipamento: ").lower())
@@ -11,6 +12,7 @@ while resposta == "sim":
     departamento.append(input("Departamento: ").lower())
     resposta = input("Digite 'sim' para continuar: ").lower()
 
+# Exibir dados do inventario
 print("\nInventário:")
 for i in range(0, len(equipamento)):
     print(f'Equipamento {i + 1}:\n'
@@ -19,7 +21,7 @@ for i in range(0, len(equipamento)):
           f'Número Serial: {serial[i]}\n'
           f'Departamento: {departamento[i]}\n')
 
-
+# Localizar um item no inventario
 busca = input("Deseja fazer uma busca? ").lower()
 if busca == "sim":
     equipamento_buscado = input("Digite o nome do equipamento que deseja buscar: ").lower()
@@ -31,14 +33,17 @@ if busca == "sim":
             print("Número Serial:", serial[i])
             print("Departamento:", departamento[i])
 
+# Depreciar itens no inventario
+depreciacao = input("Digite o nome do equipamento que será depreciado: ").lower()
 for i in range(0, len(equipamento)):
-    if equipamento[i] == "impressora":
+    if depreciacao == equipamento[i]:
         print("\nResultado da depreciação:")
         print(f'Equipamento: {equipamento[i]};\nNúmero Serial: {serial[i]}')
         print("Valor Antigo:", valor[i])
         valor[i] = valor[i] * 0.9
         print(f'Valor Novo: {valor[i]}\n')
 
+# Excluir um item do inventario
 serial_excluido = int(input("Digite a serial do equipamento a ser excluído: "))
 i = 0
 while i < len(serial):
@@ -50,6 +55,7 @@ while i < len(serial):
     else:
         i += 1
 
+# Exibir itens do inventario
 print("\nInventário:")
 for i in range(0, len(equipamento)):
     print(f'Equipamento {i + 1}:\n'
